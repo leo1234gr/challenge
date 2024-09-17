@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="47.665" timestamp="2024-09-17T10:53:11.233692-03:00" hostname="codespaces-3a3e03"><testcase classname="" name="tests.model.test_model" time="0.000"><error message="collection failure">/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py:3805: in get_loc
+    return self._engine.get_loc(casted_key)
+index.pyx:167: in pandas._libs.index.IndexEngine.get_loc
+    ???
+index.pyx:196: in pandas._libs.index.IndexEngine.get_loc
+    ???
+pandas/_libs/hashtable_class_helper.pxi:7081: in pandas._libs.hashtable.PyObjectHashTable.get_item
+    ???
+pandas/_libs/hashtable_class_helper.pxi:7089: in pandas._libs.hashtable.PyObjectHashTable.get_item
+    ???
+E   KeyError: 'Fecha-0'
+
+The above exception was the direct cause of the following exception:
+tests/model/test_model.py:6: in &lt;module&gt;
+    from challenge.model import DelayModel
+challenge/__init__.py:1: in &lt;module&gt;
+    from challenge.api import app
+challenge/api.py:5: in &lt;module&gt;
+    from challenge.model import DelayModel
+challenge/model.py:85: in &lt;module&gt;
+    data['min_diff'] = data.apply(get_min_diff, axis=1)
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/frame.py:10374: in apply
+    return op.apply().__finalize__(self, method="apply")
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/apply.py:916: in apply
+    return self.apply_standard()
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/apply.py:1063: in apply_standard
+    results, res_index = self.apply_series_generator()
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/apply.py:1081: in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+challenge/model.py:78: in get_min_diff
+    fecha_o = datetime.strptime(row['Fecha-0'], )
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/series.py:1121: in __getitem__
+    return self._get_value(key)
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/series.py:1237: in _get_value
+    loc = self.index.get_loc(label)
+/home/ubuntu/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py:3812: in get_loc
+    raise KeyError(key) from err
+E   KeyError: 'Fecha-0'</error></testcase></testsuite></testsuites>
